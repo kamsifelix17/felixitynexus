@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FelixityNexus | Digital Ads &amp; Performance Marketing</title>
+  <meta name="description" content="FelixityNexus architects full-funnel Meta (Instagram & Facebook) and TikTok ad systems—combining scroll-stopping UGC creative, Pixel & Conversions API tracking, and disciplined daily media buying." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            obsidian: {
+              950: '#060913',
+              900: '#0c1222',
+              850: '#10182d',
+              800: '#16203a',
+            },
+            brand: {
+              blue: '#38bdf8',
+              violet: '#8b5cf6',
+              coral: '#f97316',
+            }
+          },
+          boxShadow: {
+            'glow-blue': '0 0 30px -5px rgba(56, 189, 248, 0.35)',
+            'glow-violet': '0 0 35px -5px rgba(139, 92, 246, 0.35)',
+            'glow-brand': '0 10px 40px -10px rgba(56, 189, 248, 0.3), 0 10px 30px -12px rgba(249, 115, 22, 0.25)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Base obsidian styling & subtle engineering grid */
+    body {
+      background-color: #060913;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .bg-grid-pattern {
+      background-size: 44px 44px;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+    }
+
+    /* Brand gradient utilities */
+    .text-brand-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 52%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-brand-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 52%, #f97316 100%);
+    }
+
+    .bg-brand-gradient-hover:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 52%, #ea580c 100%);
+    }
+
+    /* Glassmorphic panel */
+    .glass-card {
+      background: linear-gradient(180deg, rgba(16, 24, 45, 0.78) 0%, rgba(12, 18, 34, 0.92) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .glass-card-featured {
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 30, 56, 0.9) 0%, rgba(12, 18, 34, 0.96) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      box-shadow: 0 0 45px -12px rgba(139, 92, 246, 0.35), 0 0 25px -10px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Custom Range Slider for Naira Budget Calculator */
+    input[type="range"].budget-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: #16203a;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"].budget-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #f97316 100%);
+      border: 3px solid #060913;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.75);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    input[type="range"].budget-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.12);
+    }
+
+    input[type="range"].budget-slider::-moz-range-thumb {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #f97316 100%);
+      border: 3px solid #060913;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.75);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    /* Subtle pulse animation for live architecture nodes */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.65; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+    .animate-node {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-violet selection:text-white bg-grid-pattern">
+
+  <!-- Ambient Top Radial Glows -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
+    <div class="absolute -top-40 -left-32 w-[520px] h-[520px] rounded-full bg-brand-blue/10 blur-[130px]"></div>
+    <div class="absolute top-20 right-0 w-[480px] h-[480px] rounded-full bg-brand-violet/10 blur-[140px]"></div>
+    <div class="absolute bottom-0 left-1/3 w-[540px] h-[420px] rounded-full bg-brand-coral/10 blur-[150px]"></div>
+  </div>
+
+  <!-- =====================================================================
+       1. STICKY RESPONSIVE HEADER & MOBILE DRAWER
+  ====================================================================== -->
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-obsidian-950/85 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo Mark (Bootstrap Icon) -->
+        <a href="#" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative flex-shrink-0 w-11 h-11 rounded-xl bg-obsidian-900 border border-slate-800 flex items-center justify-center shadow-glow-blue group-hover:border-brand-blue/50 transition-colors">
+            <i class="bi bi-graph-up-arrow text-brand-gradient text-2xl"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-none">
+              <span class="text-white">Felixity</span><span class="text-brand-gradient">Nexus</span>
+            </span>
+            <span class="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1">
+              Digital Ads &amp; Performance Marketing
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#services" class="hover:text-brand-blue transition-colors">Services</a>
+          <a href="#calculator" class="hover:text-brand-blue transition-colors">Budget Calculator</a>
+          <a href="#pricing" class="hover:text-brand-blue transition-colors">Pricing</a>
+          <a href="#partner-access" class="hover:text-brand-blue transition-colors">Partner Access</a>
+          <a href="#onboarding" class="hover:text-brand-blue transition-colors">Onboarding</a>
+        </nav>
+
+        <!-- Desktop CTA & Mobile Hamburger -->
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            onclick="selectServiceAndScroll('Free Ad Account Audit')"
+            class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+          >
+            <i class="bi bi-lightning-charge-fill"></i>
+            <span>Free Ad Audit</span>
+          </button>
+
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobileMenuBtn"
+            type="button"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+            class="lg:hidden p-3 rounded-xl bg-obsidian-900 border border-slate-800 text-slate-200 hover:text-white hover:border-slate-700 transition-colors"
+          >
+            <i id="mobileMenuIcon" class="bi bi-list text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden border-t border-slate-800/90 bg-obsidian-950/98 backdrop-blur-xl">
+      <div class="px-4 pt-4 pb-6 space-y-2">
+        <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-obsidian-900 hover:text-brand-blue transition-colors">
+          <i class="bi bi-grid-1x2 mr-2.5 text-brand-blue"></i>Services
+        </a>
+        <a href="#calculator" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-obsidian-900 hover:text-brand-blue transition-colors">
+          <i class="bi bi-calculator mr-2.5 text-brand-violet"></i>Budget Calculator
+        </a>
+        <a href="#pricing" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-obsidian-900 hover:text-brand-blue transition-colors">
+          <i class="bi bi-tags mr-2.5 text-brand-coral"></i>Pricing Tiers
+        </a>
+        <a href="#partner-access" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-obsidian-900 hover:text-brand-blue transition-colors">
+          <i class="bi bi-shield-lock mr-2.5 text-brand-blue"></i>Partner Access Guide
+        </a>
+        <a href="#onboarding" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-obsidian-900 hover:text-brand-blue transition-colors">
+          <i class="bi bi-rocket-takeoff mr-2.5 text-brand-violet"></i>Client Onboarding
+        </a>
+        <div class="pt-3">
+          <button
+            type="button"
+            onclick="selectServiceAndScroll('Free Ad Account Audit')"
+            class="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-base font-bold text-white bg-brand-gradient shadow-glow-brand"
+          >
+            <i class="bi bi-lightning-charge-fill"></i>
+            <span>Request Free Ad Audit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         2. HIGH-IMPACT HERO SECTION
+    ====================================================================== -->
+    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          
+          <!-- Left Column: Value Proposition & CTAs -->
+          <div class="lg:col-span-7 space-y-7">
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-obsidian-900/90 border border-brand-blue/30 text-xs font-bold tracking-wider uppercase text-brand-blue shadow-glow-blue">
+              <span class="w-2 h-2 rounded-full bg-brand-coral animate-ping"></span>
+              <span>META &amp; TIKTOK PERFORMANCE MARKETING • NIGERIA &amp; GLOBAL</span>
+            </div>
+
+            <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.45rem] text-white leading-[1.12] tracking-tight">
+              Turn Your Ad Spend Into <span class="text-brand-gradient">Predictable, Profitable</span> Revenue.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              We architect full-funnel <strong class="text-white font-semibold">Meta (Instagram &amp; Facebook)</strong> and <strong class="text-white font-semibold">TikTok</strong> ad systems—combining scroll-stopping UGC creative, Pixel &amp; Conversions API tracking, and disciplined daily media buying.
+            </p>
+
+            <!-- Dual CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
+              <button
+                type="button"
+                onclick="selectServiceAndScroll('Free Ad Account Audit')"
+                class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl text-base font-bold text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+              >
+                <span>Start Your Free Audit</span>
+                <i class="bi bi-arrow-right-short text-2xl leading-none"></i>
+              </button>
+
+              <a
+                href="#calculator"
+                class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl text-base font-semibold text-slate-200 bg-obsidian-900/90 hover:bg-obsidian-800 border border-slate-700/80 hover:border-brand-blue/50 transition-all duration-200"
+              >
+                <i class="bi bi-sliders text-brand-blue"></i>
+                <span>Calculate Your Budget</span>
+              </a>
+            </div>
+
+            <!-- Operational Trust Badges (No fake testimonials) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue flex-shrink-0">
+                  <i class="bi bi-shield-check text-lg"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">100% Asset Ownership</div>
+                  <div class="text-[11px] text-slate-400">Zero passwords shared</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-violet/10 border border-brand-violet/30 flex items-center justify-center text-brand-violet flex-shrink-0">
+                  <i class="bi bi-cpu text-lg"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">Pixel + CAPI Ready</div>
+                  <div class="text-[11px] text-slate-400">Server-side event attribution</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-coral/10 border border-brand-coral/30 flex items-center justify-center text-brand-coral flex-shrink-0">
+                  <i class="bi bi-cash-coin text-lg"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">Separate Ad Billing</div>
+                  <div class="text-[11px] text-slate-400">Direct card control in NGN/USD</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Campaign Architecture Preview -->
+          <div class="lg:col-span-5">
+            <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-2xl relative">
+              <!-- Subtle top accent bar -->
+              <div class="absolute inset-x-6 top-0 h-[2px] bg-brand-gradient rounded-full"></div>
+
+              <!-- Mockup Header + Platform Toggle -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-widest text-brand-blue">System Blueprint</span>
+                  <h2 class="font-display font-bold text-lg text-white">Campaign Architecture Preview</h2>
+                </div>
+
+                <!-- Interactive Toggle -->
+                <div class="inline-flex p-1 rounded-xl bg-obsidian-950 border border-slate-800" role="tablist">
+                  <button
+                    id="archTabMeta"
+                    type="button"
+                    onclick="switchArchitecture('meta')"
+                    class="px-3.5 py-2 rounded-lg text-xs font-bold transition-all bg-brand-gradient text-white shadow-sm cursor-pointer"
+                  >
+                    <i class="bi bi-meta mr-1"></i>Meta Ads (IG/FB)
+                  </button>
+                  <button
+                    id="archTabTiktok"
+                    type="button"
+                    onclick="switchArchitecture('tiktok')"
+                    class="px-3.5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all cursor-pointer"
+                  >
+                    <i class="bi bi-tiktok mr-1"></i>TikTok Ads
+                  </button>
+                </div>
+              </div>
+
+              <!-- Dynamic Architecture Pipeline Stages -->
+              <div id="architectureBody" class="mt-5 space-y-3.5">
+                <!-- Populated dynamically on load & toggle by JS -->
+              </div>
+
+              <!-- Bottom Interactive Summary Bar -->
+              <div class="mt-5 pt-4 border-t border-slate-800/90 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+                <div class="flex items-center gap-2 text-slate-300 font-medium">
+                  <i class="bi bi-activity text-emerald-400 text-base"></i>
+                  <span id="archStatusText">Primary Conversion Objective: Sales &amp; High-Velocity Lead Capture</span>
+                </div>
+                <span id="archTagBadge" class="px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/35 text-brand-blue font-semibold">
+                  Placements: IG Reels • Feed • Stories
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. CORE AGENCY SERVICES (3-CARD GRID)
+    ====================================================================== -->
+    <section id="services" class="py-20 border-t border-slate-800/70 bg-obsidian-900/35">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">FelixityNexus Service Catalog</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+            Built to Fix Tracking, Stop Wasted Spend, and Scale Winners.
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Whether you need an account teardown before spending another Naira, full-service daily media buying, or high-converting video scripts—choose your entry point.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
+          
+          <!-- Card 1: Ad Account Audit -->
+          <article class="glass-card rounded-3xl p-7 flex flex-col justify-between hover:border-brand-blue/45 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold tracking-wider uppercase bg-brand-coral/15 text-brand-coral border border-brand-coral/35">
+                  FREE AUDIT
+                </span>
+                <div class="w-11 h-11 rounded-2xl bg-brand-blue/10 border border-brand-blue/25 flex items-center justify-center text-brand-blue">
+                  <i class="bi bi-search text-xl"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-2xl text-white mb-2">Ad Account Audit</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                A complete diagnostic teardown of your active Ads Manager to uncover hidden tracking breaks, audience overlap, and creative fatigue before scaling.
+              </p>
+
+              <ul class="space-y-3.5 text-sm text-slate-200 mb-8">
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-blue mt-0.5"></i>
+                  <span>Pixel &amp; CAPI tracking check</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-blue mt-0.5"></i>
+                  <span>Target audience analysis</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-blue mt-0.5"></i>
+                  <span>Identify wasted ad spend</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-blue mt-0.5"></i>
+                  <span>Speed &amp; creative review</span>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              type="button"
+              onclick="selectServiceAndScroll('Free Ad Account Audit')"
+              class="w-full py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-obsidian-800 hover:bg-brand-blue hover:text-obsidian-950 border border-brand-blue/40 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Request Audit</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- Card 2: Full-Funnel Campaign Management (Featured Border) -->
+          <article class="glass-card-featured rounded-3xl p-7 flex flex-col justify-between lg:-translate-y-2">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold tracking-wider uppercase bg-brand-gradient text-white shadow-sm">
+                  SCALING &amp; GROWTH
+                </span>
+                <div class="w-11 h-11 rounded-2xl bg-brand-violet/15 border border-brand-violet/40 flex items-center justify-center text-brand-violet">
+                  <i class="bi bi-funnel-fill text-xl"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-2xl text-white mb-2">Full-Funnel Campaign Management</h3>
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                End-to-end media buying across Meta and TikTok. We build, monitor, test, and scale your campaigns daily to maximize return on every Naira spent.
+              </p>
+
+              <ul class="space-y-3.5 text-sm text-slate-100 mb-8">
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-violet mt-0.5"></i>
+                  <span>End-to-end media buying</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-violet mt-0.5"></i>
+                  <span>Meta &amp; TikTok ad optimization</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-violet mt-0.5"></i>
+                  <span>Account scaling strategy</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-violet mt-0.5"></i>
+                  <span>ROI &amp; ROAS tracking</span>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              type="button"
+              onclick="selectServiceAndScroll('Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)')"
+              class="w-full py-4 px-5 rounded-xl font-bold text-sm text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Start Scaling</span>
+              <i class="bi bi-rocket-takeoff-fill"></i>
+            </button>
+          </article>
+
+          <!-- Card 3: Ad Creative & Copywriting -->
+          <article class="glass-card rounded-3xl p-7 flex flex-col justify-between hover:border-brand-coral/45 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold tracking-wider uppercase bg-brand-blue/15 text-brand-blue border border-brand-blue/35">
+                  SCROLL-STOPPING
+                </span>
+                <div class="w-11 h-11 rounded-2xl bg-brand-coral/10 border border-brand-coral/30 flex items-center justify-center text-brand-coral">
+                  <i class="bi bi-camera-reels-fill text-xl"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-2xl text-white mb-2">Ad Creative &amp; Copywriting</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                Algorithms follow attention. We engineer 3-second visual hooks, UGC scripts, and persuasive ad copy built specifically for Reels and TikTok feeds.
+              </p>
+
+              <ul class="space-y-3.5 text-sm text-slate-200 mb-8">
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-coral mt-0.5"></i>
+                  <span>UGC visual strategy</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-coral mt-0.5"></i>
+                  <span>High-impact 3-second scroll-stopping hooks</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-coral mt-0.5"></i>
+                  <span>Persuasive ad copywriting</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="bi bi-check-circle-fill text-brand-coral mt-0.5"></i>
+                  <span>Creative briefs &amp; script testing</span>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              type="button"
+              onclick="selectServiceAndScroll('Full Creative & Video Editing Add-On (₦85,000/mo)')"
+              class="w-full py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-obsidian-800 hover:bg-brand-coral hover:text-white border border-brand-coral/40 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Get High-Converting Ads</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4A. INTERACTIVE "AD SPEND VS. AGENCY FEE" BUDGET CALCULATOR (₦)
+    ====================================================================== -->
+    <section id="calculator" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-coral">Financial Clarity • Nigerian Naira (₦)</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+            Interactive Ad Spend vs. Agency Fee Calculator
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Slide to your total monthly marketing budget to see the exact split between your <strong class="text-white">Agency Management Fee</strong> and your <strong class="text-white">Pure Ad Spend Fuel</strong>.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            <!-- Left Side: Slider, Quick Presets & The Golden Rule -->
+            <div class="lg:col-span-6 space-y-6">
+              <div>
+                <div class="flex items-baseline justify-between gap-2 mb-3">
+                  <label for="budgetRange" class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Total Monthly Marketing Budget
+                  </label>
+                  <span id="totalBudgetDisplay" class="font-display font-bold text-3xl sm:text-4xl text-brand-gradient">
+                    ₦450,000
+                  </span>
+                </div>
+
+                <input
+                  id="budgetRange"
+                  type="range"
+                  min="50000"
+                  max="2000000"
+                  step="10000"
+                  value="450000"
+                  class="budget-slider"
+                />
+                <div class="flex justify-between text-[11px] font-medium text-slate-500 mt-2">
+                  <span>₦50,000</span>
+                  <span>₦500,000</span>
+                  <span>₦1,000,000</span>
+                  <span>₦2,000,000</span>
+                </div>
+              </div>
+
+              <!-- Quick Preset Buttons (with Bootstrap Icons) -->
+              <div>
+                <span class="block text-xs font-semibold text-slate-400 mb-2.5">Quick Budget Presets:</span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  <button type="button" onclick="setBudgetPreset(50000)" data-preset="50000" class="preset-btn py-2.5 px-3 rounded-xl text-xs font-bold bg-obsidian-950 border border-slate-800 text-slate-300 hover:border-brand-blue transition-all cursor-pointer inline-flex items-center justify-center gap-1.5">
+                    <i class="bi bi-lightning-charge text-brand-coral"></i>
+                    <span>₦50,000</span>
+                  </button>
+                  <button type="button" onclick="setBudgetPreset(150000)" data-preset="150000" class="preset-btn py-2.5 px-3 rounded-xl text-xs font-bold bg-obsidian-950 border border-slate-800 text-slate-300 hover:border-brand-blue transition-all cursor-pointer inline-flex items-center justify-center gap-1.5">
+                    <i class="bi bi-graph-up text-brand-blue"></i>
+                    <span>₦150,000</span>
+                  </button>
+                  <button type="button" onclick="setBudgetPreset(450000)" data-preset="450000" class="preset-btn py-2.5 px-3 rounded-xl text-xs font-bold bg-obsidian-950 border border-brand-blue text-white transition-all cursor-pointer inline-flex items-center justify-center gap-1.5">
+                    <i class="bi bi-rocket-takeoff text-brand-violet"></i>
+                    <span>₦450,000</span>
+                  </button>
+                  <button type="button" onclick="setBudgetPreset(1200000)" data-preset="1200000" class="preset-btn py-2.5 px-3 rounded-xl text-xs font-bold bg-obsidian-950 border border-slate-800 text-slate-300 hover:border-brand-blue transition-all cursor-pointer inline-flex items-center justify-center gap-1.5">
+                    <i class="bi bi-gem text-brand-coral"></i>
+                    <span>₦1,000,000+</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- The Golden Rule Box -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-obsidian-950/90 border-l-4 border-brand-blue">
+                <div class="flex items-center gap-2 text-sm font-bold text-white mb-1.5">
+                  <i class="bi bi-shield-fill-exclamation text-brand-blue"></i>
+                  <span>The Golden Rule of Ad Billing</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Your <strong class="text-white">Ad Spend stays 100% on your own debit/credit card</strong> inside your Meta or TikTok Business Manager—we never hold your ad money. Our <strong class="text-white">Management Fee</strong> covers strategy, tracking, creative direction, and daily optimization.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Side: Dynamic Calculation Output Card -->
+            <div class="lg:col-span-6">
+              <div class="rounded-2xl bg-obsidian-950 border border-slate-800 p-6 space-y-5">
+                
+                <!-- Recommended Package Header -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-800">
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-brand-violet">Recommended Plan</span>
+                    <h3 id="calcPackageName" class="font-display font-bold text-xl text-white mt-0.5">
+                      Tier 2: Omni-Channel Scale Retainer
+                    </h3>
+                  </div>
+                  <span id="calcPackageType" class="px-3 py-1 rounded-full text-xs font-bold bg-brand-violet/15 text-brand-violet border border-brand-violet/30">
+                    Monthly Retainer
+                  </span>
+                </div>
+
+                <!-- 2-Column Cost Breakdown -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="p-4 rounded-xl bg-obsidian-900 border border-slate-800/90">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+                      <span class="w-2.5 h-2.5 rounded-full bg-brand-violet"></span>
+                      <span>Agency Service Fee</span>
+                    </div>
+                    <div id="calcAgencyFee" class="font-display font-bold text-2xl text-white mt-1.5">
+                      ₦180,000
+                    </div>
+                    <div class="text-[11px] text-slate-400 mt-1">Paid to FelixityNexus</div>
+                  </div>
+
+                  <div class="p-4 rounded-xl bg-obsidian-900 border border-brand-blue/30">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-brand-blue">
+                      <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
+                      <span>Pure Ad Spend Fuel</span>
+                    </div>
+                    <div id="calcAdSpend" class="font-display font-bold text-2xl text-brand-blue mt-1.5">
+                      ₦270,000
+                    </div>
+                    <div id="calcDailyBudget" class="text-[11px] text-slate-300 font-medium mt-1">
+                      ≈ ₦9,000 / day (over 30 days)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Visual Allocation Bar -->
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1.5">
+                    <span id="calcSpendPctLabel" class="text-brand-blue">Ad Spend Fuel: 60%</span>
+                    <span id="calcFeePctLabel" class="text-brand-violet">Agency Fee: 40%</span>
+                  </div>
+                  <div class="w-full h-3 rounded-full bg-obsidian-900 overflow-hidden flex">
+                    <div id="calcSpendBar" class="h-full bg-brand-blue transition-all duration-300" style="width: 60%;"></div>
+                    <div id="calcFeeBar" class="h-full bg-brand-violet transition-all duration-300" style="width: 40%;"></div>
+                  </div>
+                </div>
+
+                <!-- Dynamic Strategic Advice Note -->
+                <p id="calcAdviceNote" class="text-xs text-slate-400 leading-relaxed bg-obsidian-900/60 p-3.5 rounded-xl border border-slate-800/80">
+                  Ideal for active growth: covers full Meta + TikTok media buying, Conversions API tracking, and weekly creative testing while keeping ₦9,000/day fueling your ads.
+                </p>
+
+                <button
+                  id="calcSelectBtn"
+                  type="button"
+                  onclick="selectCalculatedPackage()"
+                  class="w-full py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Lock In This Package</span>
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4B. TRANSPARENT PRODUCTIZED PRICING TIERS (₦)
+    ====================================================================== -->
+    <section id="pricing" class="py-20 border-t border-slate-800/70 bg-obsidian-900/35">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">Transparent Investment Guide</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+              Productized Packages for Every Stage
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+              Flat, predictable management fees—never inflated percentages on small accounts. All prices reflect agency fees only (ad spend is paid directly to Meta/TikTok).
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="inline-flex p-1.5 rounded-2xl bg-obsidian-950 border border-slate-800 self-start" role="tablist">
+            <button
+              type="button"
+              onclick="filterPricing('all')"
+              data-filter="all"
+              class="pricing-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-gradient text-white transition-all cursor-pointer"
+            >
+              All Packages
+            </button>
+            <button
+              type="button"
+              onclick="filterPricing('starter')"
+              data-filter="starter"
+              class="pricing-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer"
+            >
+              Starter &amp; One-Time
+            </button>
+            <button
+              type="button"
+              onclick="filterPricing('retainer')"
+              data-filter="retainer"
+              class="pricing-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer"
+            >
+              Monthly Retainers
+            </button>
+          </div>
+        </div>
+
+        <!-- 8 Productized Pricing Cards Grid -->
+        <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- 1. Free Ad Account Audit -->
+          <div data-category="starter" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-coral bg-brand-coral/10 px-2.5 py-1 rounded-md">Diagnostic</span>
+                <span class="text-xs text-slate-400">One-Time</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Free Ad Account Audit</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">₦0</div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                48-hour diagnostic teardown for active ad accounts to spot tracking leaks, wasted spend, and scaling bottlenecks.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Pixel &amp; CAPI event check</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Wasted spend &amp; audience review</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Actionable Loom/report summary</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Free Ad Account Audit')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer">
+              Select Free Audit
+            </button>
+          </div>
+
+          <!-- 2. The Power Hour -->
+          <div data-category="starter" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-2.5 py-1 rounded-md">Small Budget Fit</span>
+                <span class="text-xs text-slate-400">60 Mins</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">The Power Hour (1-on-1 Live Setup)</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">₦20,000</div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                60-min screen-share setup tailored for small budgets starting around ₦50,000 total—so ₦30,000+ stays reserved for ad fuel.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Live 1-on-1 Ads Manager build</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Targeting &amp; billing troubleshooting</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Zero ongoing agency retainer</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('The Power Hour (₦20,000)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer">
+              Book Power Hour
+            </button>
+          </div>
+
+          <!-- 3. One-Time Campaign Setup & Handover -->
+          <div data-category="starter" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-violet bg-brand-violet/10 px-2.5 py-1 rounded-md">Done-For-You Launch</span>
+                <span class="text-xs text-slate-400">One-Time</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">One-Time Campaign Setup &amp; Handover</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">₦45,000</div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                Complete campaign build, targeting &amp; copy inside your account, launched cleanly &amp; handed over to your team.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>1–2 structured Meta/TikTok campaigns</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>Custom audience &amp; conversion setup</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>Handover walkthrough guide</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('One-Time Campaign Setup & Handover (₦45,000)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer">
+              Choose Setup &amp; Handover
+            </button>
+          </div>
+
+          <!-- 4. Ad Copy & Script Pack -->
+          <div data-category="starter" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-coral bg-brand-coral/10 px-2.5 py-1 rounded-md">Creative Hooks</span>
+                <span class="text-xs text-slate-400">One-Time</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Ad Copy &amp; Script Pack</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">₦30,000</div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                3–5 high-converting ad scripts, 3-second scroll-stopping hooks &amp; persuasive primary text captions ready to shoot or launch.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>3–5 UGC &amp; direct-response video scripts</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>Multiple headline &amp; hook variations</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>Tailored for IG Reels &amp; TikTok</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Ad Copy & Script Pack (₦30,000)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer">
+              Order Script Pack
+            </button>
+          </div>
+
+          <!-- 5. Tier 1: Launch & Grow Retainer -->
+          <div data-category="retainer" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-brand-blue/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-2.5 py-1 rounded-md">Tier 1</span>
+                <span class="text-xs text-slate-400">Monthly</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Launch &amp; Grow Retainer</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">
+                ₦90,000 <span class="text-xs font-normal text-slate-400">/ mo</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                Built for growing businesses with monthly ad spends under ₦300,000/mo looking for consistent lead flow or sales.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>1–2 core Meta (IG/FB) campaigns</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Meta Pixel &amp; event verification</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-blue font-bold"></i><span>Bi-weekly optimization &amp; reporting</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Tier 1: Launch & Grow Retainer (₦90,000/mo)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-brand-blue hover:text-obsidian-950 border border-brand-blue/40 transition-colors cursor-pointer">
+              Select Tier 1
+            </button>
+          </div>
+
+          <!-- 6. Tier 2: Omni-Channel Scale Retainer (MOST POPULAR) -->
+          <div data-category="retainer" class="pricing-card glass-card-featured rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-white bg-brand-gradient px-2.5 py-1 rounded-md">Most Popular</span>
+                <span class="text-xs text-brand-blue font-semibold">Monthly</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Tier 2: Omni-Channel Scale Retainer</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">
+                ₦180,000 <span class="text-xs font-normal text-slate-400">/ mo</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mb-5">
+                For ambitious brands spending up to ₦1,000,000/mo on ads across Meta &amp; TikTok that want aggressive multi-channel growth.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-100 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check-circle-fill text-brand-violet"></i><span>Full Meta + TikTok campaign management</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check-circle-fill text-brand-violet"></i><span>Conversions API (CAPI) setup</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check-circle-fill text-brand-violet"></i><span>Creative testing briefs &amp; weekly reports</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)')" class="w-full py-3.5 px-4 rounded-xl text-xs font-bold text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all cursor-pointer">
+              Select Tier 2 (Recommended)
+            </button>
+          </div>
+
+          <!-- 7. Tier 3: High-Volume Partner -->
+          <div data-category="retainer" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-brand-violet/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-violet bg-brand-violet/10 px-2.5 py-1 rounded-md">Tier 3 • Enterprise</span>
+                <span class="text-xs text-slate-400">Monthly</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">High-Volume Partner</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">
+                ₦300,000+ <span class="text-xs font-normal text-slate-400">/ mo</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                Built for multi-million Naira spenders requiring daily budget scaling, full-funnel creative direction, and custom attribution roadmaps.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>Multi-account Meta &amp; TikTok scaling</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>Full-funnel creative &amp; media buying</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-violet font-bold"></i><span>Custom scaling roadmap &amp; priority support</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Tier 3: High-Volume Partner (₦300,000+/mo)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-brand-violet transition-colors border border-brand-violet/40 cursor-pointer">
+              Apply for Tier 3
+            </button>
+          </div>
+
+          <!-- 8. Full Creative & Video Editing Add-On -->
+          <div data-category="retainer" class="pricing-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-brand-coral/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-coral bg-brand-coral/10 px-2.5 py-1 rounded-md">Creative Add-On</span>
+                <span class="text-xs text-slate-400">Monthly</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Full Creative &amp; Video Editing Add-On</h3>
+              <div class="font-display font-extrabold text-3xl text-white mt-2 mb-3">
+                ₦85,000 <span class="text-xs font-normal text-slate-400">/ mo</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-5">
+                Send us your raw phone footage—we transform it into scroll-stopping Reels &amp; TikTok ads with dynamic captions and hooks.
+              </p>
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>Raw footage edited into high-ROAS ads</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>Multiple 3-second hook variations</span></li>
+                <li class="flex items-start gap-2"><i class="bi bi-check2 text-brand-coral font-bold"></i><span>Trend-native pacing &amp; text overlays</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="selectServiceAndScroll('Full Creative & Video Editing Add-On (₦85,000/mo)')" class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-obsidian-800 hover:bg-brand-coral transition-colors border border-brand-coral/40 cursor-pointer">
+              Add Creative Suite
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Client Protection & Transparency Disclaimer Box -->
+        <div class="mt-12 rounded-2xl bg-obsidian-950/90 border border-slate-800 p-5 sm:p-6 flex flex-col sm:flex-row items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+            <i class="bi bi-info-circle-fill text-lg"></i>
+          </div>
+          <div class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <strong class="text-slate-200 block mb-1">Client Protection &amp; Transparency Disclaimer:</strong>
+            FelixityNexus is an independent performance marketing agency and is not affiliated with or endorsed by Meta Platforms, Inc. or TikTok. Advertising results vary depending on offer strength, product-market fit, pricing, landing page conversion rate, and platform algorithms—therefore no agency can guarantee specific sales figures or lead counts. Your agency fee compensates FelixityNexus for professional strategy, campaign architecture, creative execution, and management, and is non-refundable once work commences. All ad spend is paid directly to Meta or TikTok via your own Business Manager billing method and is strictly non-refundable by FelixityNexus.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. ZERO-PASSWORD 5-MINUTE PARTNER ACCESS SECURITY GUIDE
+    ====================================================================== -->
+    <section id="partner-access" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">Zero-Password Security Protocol</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+            5-Minute Partner Access Setup Guide
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            We <strong class="text-white">never</strong> ask for your personal Facebook, Instagram, or TikTok passwords. You retain 100% ownership of your ad accounts, pages, and billing cards at all times.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Column: Agency Partner ID Box with Copy & Edit Toggle -->
+          <div class="lg:col-span-5 glass-card rounded-3xl p-6 sm:p-7 space-y-6">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
+                  <i class="bi bi-key-fill text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-display font-bold text-lg text-white">Agency Partner IDs</h3>
+                  <p class="text-xs text-slate-400">One-click copy for your Business Settings</p>
+                </div>
+              </div>
+
+              <button
+                id="toggleEditIdsBtn"
+                type="button"
+                onclick="toggleEditPartnerIds()"
+                class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-obsidian-950 border border-slate-700 text-slate-300 hover:text-white hover:border-brand-blue transition-colors cursor-pointer"
+              >
+                <i class="bi bi-pencil-square mr-1"></i><span id="editIdsBtnText">Edit IDs</span>
+              </button>
+            </div>
+
+            <!-- Meta Business ID Card -->
+            <div class="p-4 rounded-2xl bg-obsidian-950 border border-slate-800 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-brand-blue flex items-center gap-1.5">
+                  <i class="bi bi-meta"></i> Meta Business Portfolio ID
+                </span>
+                <span class="text-[11px] text-slate-500">16-Digit ID</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <input
+                  id="metaPartnerIdInput"
+                  type="text"
+                  readonly
+                  value="174628270694724"
+                  aria-label="Meta Business Portfolio ID"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian-900 border border-slate-800 font-mono text-sm text-white focus:outline-none focus:border-brand-blue"
+                />
+                <button
+                  type="button"
+                  onclick="copyPartnerId('metaPartnerIdInput', 'Meta Business ID')"
+                  class="px-4 py-2.5 rounded-xl bg-brand-blue/15 hover:bg-brand-blue text-brand-blue hover:text-obsidian-950 border border-brand-blue/35 text-xs font-bold transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+                >
+                  <i class="bi bi-clipboard"></i>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TikTok Business Center ID Card -->
+            <div class="p-4 rounded-2xl bg-obsidian-950 border border-slate-800 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-brand-coral flex items-center gap-1.5">
+                  <i class="bi bi-tiktok"></i> TikTok Business Center ID
+                </span>
+                <span class="text-[11px] text-slate-500">Partner ID</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <input
+                  id="tiktokPartnerIdInput"
+                  type="text"
+                  readonly
+                  value="7711998432152880180"
+                  aria-label="TikTok Business Center ID"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian-900 border border-slate-800 font-mono text-sm text-white focus:outline-none focus:border-brand-coral"
+                />
+                <button
+                  type="button"
+                  onclick="copyPartnerId('tiktokPartnerIdInput', 'TikTok Business Center ID')"
+                  class="px-4 py-2.5 rounded-xl bg-brand-coral/15 hover:bg-brand-coral text-brand-coral hover:text-white border border-brand-coral/35 text-xs font-bold transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+                >
+                  <i class="bi bi-clipboard"></i>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="editIdsHelper" class="hidden text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 rounded-xl p-3">
+              <i class="bi bi-unlock-fill mr-1"></i> ID fields unlocked! Paste your live FelixityNexus Meta &amp; TikTok IDs above and click <strong>Save IDs</strong> to store them in this browser.
+            </div>
+
+            <!-- Ownership & Security Assurance + Quick Call Setup Info -->
+            <div class="space-y-3 pt-1">
+              <div class="p-3.5 rounded-xl bg-obsidian-950/90 border border-brand-blue/25 text-xs text-slate-300 leading-relaxed">
+                <i class="bi bi-shield-check text-brand-blue mr-1"></i>
+                <strong class="text-white">100% Ownership &amp; Billing Control:</strong> Partner Access only grants campaign management permissions (<em>Manage campaigns</em> / <em>Operator</em>). You keep sole ownership of your Page, Ad Account, and debit/credit card, and can revoke agency access in one click anytime.
+              </div>
+
+              <p class="text-xs text-slate-400 leading-relaxed">
+                <i class="bi bi-info-circle text-brand-violet mr-1"></i> Don't have a Meta Business Manager or TikTok Business Center yet? No problem—mention it in the onboarding form below and we'll walk you through creating one on a quick call.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Tab Switcher for 5-Step Instructions -->
+          <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8">
+            
+            <!-- Platform Tabs -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div class="inline-flex p-1.5 rounded-2xl bg-obsidian-950 border border-slate-800" role="tablist">
+                <button
+                  id="partnerTabMeta"
+                  type="button"
+                  onclick="switchPartnerGuide('meta')"
+                  class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-gradient text-white transition-all cursor-pointer"
+                >
+                  <i class="bi bi-meta mr-1.5"></i>Meta Business Manager
+                </button>
+                <button
+                  id="partnerTabTiktok"
+                  type="button"
+                  onclick="switchPartnerGuide('tiktok')"
+                  class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer"
+                >
+                  <i class="bi bi-tiktok mr-1.5"></i>TikTok Business Center
+                </button>
+              </div>
+
+              <span class="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+                <i class="bi bi-clock-history"></i> Takes &lt; 5 Minutes
+              </span>
+            </div>
+
+            <!-- Dynamic 5-Step Checklist -->
+            <ol id="partnerStepsList" class="mt-6 space-y-4">
+              <!-- Populated dynamically by JS -->
+            </ol>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. MULTI-STEP INTERACTIVE CLIENT DISCOVERY & ONBOARDING FORM (3-STEP)
+    ====================================================================== -->
+    <section id="onboarding" class="py-20 border-t border-slate-800/70 bg-obsidian-900/40">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-violet">Streamlined 12-Point Discovery</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+            FelixityNexus Client Discovery &amp; Onboarding
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Complete this quick 3-step discovery flow so we can audit your current setup and launch your custom Meta/TikTok ad strategy.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+          
+          <!-- Interactive Clickable Step Progress Indicator -->
+          <div class="mb-8">
+            <div class="grid grid-cols-3 gap-2 text-xs font-bold mb-3">
+              <button
+                id="stepIndicator1"
+                type="button"
+                onclick="goToStep(1)"
+                class="text-brand-blue flex items-center justify-start gap-2 text-left cursor-pointer focus:outline-none"
+              >
+                <span class="w-7 h-7 rounded-xl bg-brand-gradient text-white inline-flex items-center justify-center text-xs flex-shrink-0">
+                  <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="truncate">1. Business &amp; Economics</span>
+              </button>
+
+              <button
+                id="stepIndicator2"
+                type="button"
+                onclick="goToStep(2)"
+                class="text-slate-500 flex items-center justify-center gap-2 text-center cursor-pointer focus:outline-none"
+              >
+                <span class="w-7 h-7 rounded-xl bg-obsidian-800 text-slate-400 inline-flex items-center justify-center text-xs flex-shrink-0">
+                  <i class="bi bi-bullseye"></i>
+                </span>
+                <span class="hidden sm:inline truncate">2. Budget &amp; Strategy</span>
+              </button>
+
+              <button
+                id="stepIndicator3"
+                type="button"
+                onclick="goToStep(3)"
+                class="text-slate-500 flex items-center justify-end gap-2 text-right cursor-pointer focus:outline-none"
+              >
+                <span class="w-7 h-7 rounded-xl bg-obsidian-800 text-slate-400 inline-flex items-center justify-center text-xs flex-shrink-0">
+                  <i class="bi bi-sliders"></i>
+                </span>
+                <span class="hidden sm:inline truncate">3. Accounts &amp; Creative</span>
+              </button>
+            </div>
+            <div class="w-full h-2 rounded-full bg-obsidian-950 overflow-hidden">
+              <div id="wizardProgressBar" class="h-full bg-brand-gradient transition-all duration-300" style="width: 33.33%;"></div>
+            </div>
+          </div>
+
+          <!-- Wizard Form -->
+          <form id="onboardingForm" novalidate>
+            
+            <!-- STEP 1: Business & Contact Details (Questions 1–4) -->
+            <div id="wizardStep1" class="space-y-5">
+              <div class="border-b border-slate-800 pb-3 flex items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-display font-bold text-xl text-white">Step 1: Contact &amp; Business Economics</h3>
+                  <p class="text-xs text-slate-400 mt-1">Tell us who you are and the core numbers behind your offer.</p>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-obsidian-950 border border-slate-800 text-[11px] font-bold text-brand-blue">Step 1 of 3</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="f_name_role" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-person-fill text-brand-blue"></i>
+                    <span>1. Full Name &amp; Role <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <input
+                    id="f_name_role"
+                    type="text"
+                    required
+                    placeholder="e.g., Chukwuka Joshua — Business Owner"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label for="f_contact" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-whatsapp text-emerald-400"></i>
+                    <span>2. Best Email &amp; WhatsApp Number <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <input
+                    id="f_contact"
+                    type="text"
+                    required
+                    placeholder="e.g., name@brand.com | +234 908 000 0000"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="f_business_url" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-globe2 text-brand-violet"></i>
+                    <span>3. Business Name &amp; Website / IG Handle <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <input
+                    id="f_business_url"
+                    type="text"
+                    required
+                    placeholder="e.g., Santosneakers — @santosneakers / website.com"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label for="f_aov" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-tag-fill text-brand-coral"></i>
+                    <span>4. Average Price (AOV) of Main Product/Service <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <input
+                    id="f_aov"
+                    type="text"
+                    required
+                    placeholder="e.g., ₦25,000 or $50"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div class="pt-4 flex justify-end">
+                <button
+                  type="button"
+                  onclick="goToStep(2)"
+                  class="px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Next: Budget &amp; Strategy</span>
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Budget & Campaign Strategy (Questions 5–8) -->
+            <div id="wizardStep2" class="hidden space-y-5">
+              <div class="border-b border-slate-800 pb-3 flex items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-display font-bold text-xl text-white">Step 2: Campaign Strategy &amp; Budget</h3>
+                  <p class="text-xs text-slate-400 mt-1">Select your preferred FelixityNexus service tier and target market.</p>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-obsidian-950 border border-slate-800 text-[11px] font-bold text-brand-violet">Step 2 of 3</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="f_service" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-layers-fill text-brand-violet"></i>
+                    <span>5. Which FelixityNexus service do you need? <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <select
+                    id="f_service"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-blue transition-colors"
+                  >
+                    <option value="Free Ad Account Audit">Free Ad Account Audit (₦0)</option>
+                    <option value="The Power Hour (₦20,000)">The Power Hour — 1-on-1 Live Setup (₦20,000)</option>
+                    <option value="One-Time Campaign Setup & Handover (₦45,000)">One-Time Campaign Setup &amp; Handover (₦45,000)</option>
+                    <option value="Ad Copy & Script Pack (₦30,000)">Ad Copy &amp; Script Pack (₦30,000)</option>
+                    <option value="Tier 1: Launch & Grow Retainer (₦90,000/mo)">Tier 1: Launch &amp; Grow Retainer (₦90,000/mo)</option>
+                    <option value="Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)" selected>Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)</option>
+                    <option value="Tier 3: High-Volume Partner (₦300,000+/mo)">Tier 3: High-Volume Partner (₦300,000+/mo)</option>
+                    <option value="Full Creative & Video Editing Add-On (₦85,000/mo)">Full Creative &amp; Video Editing Add-On (₦85,000/mo)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="f_budget" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                    <i class="bi bi-cash-stack text-emerald-400"></i>
+                    <span>8. Realistic Monthly Ad Spend Budget <span class="text-brand-coral">*</span></span>
+                  </label>
+                  <select
+                    id="f_budget"
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-blue transition-colors"
+                  >
+                    <option value="Under $300 / Under ₦300,000">Under $300 / Under ₦300,000</option>
+                    <option value="$300 – $1,000 / ₦300,000 – ₦1,000,000" selected>$300 – $1,000 / ₦300,000 – ₦1,000,000</option>
+                    <option value="$1,000 – $3,000 / ₦1,000,000 – ₦3,000,000">$1,000 – $3,000 / ₦1,000,000 – ₦3,000,000</option>
+                    <option value="$3,000+ / ₦3,000,000+">$3,000+ / ₦3,000,000+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="f_goal_location" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                  <i class="bi bi-geo-alt-fill text-brand-blue"></i>
+                  <span>6. Primary Goal &amp; Target Location <span class="text-brand-coral">*</span></span>
+                </label>
+                <input
+                  id="f_goal_location"
+                  type="text"
+                  required
+                  placeholder="e.g., Website sales or WhatsApp orders in Lagos & Abuja"
+                  class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="f_customer_offer" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                  <i class="bi bi-people-fill text-brand-coral"></i>
+                  <span>7. Ideal Customer &amp; Any Current Special Offers / Discounts</span>
+                </label>
+                <textarea
+                  id="f_customer_offer"
+                  rows="3"
+                  placeholder="Describe who buys from you most and any promo (e.g., Free Lagos delivery, 10% off first order)..."
+                  class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                ></textarea>
+              </div>
+
+              <div class="pt-4 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onclick="goToStep(1)"
+                  class="px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-obsidian-950 hover:bg-obsidian-800 border border-slate-800 transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <i class="bi bi-arrow-left"></i>
+                  <span>Back</span>
+                </button>
+
+                <button
+                  type="button"
+                  onclick="goToStep(3)"
+                  class="px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Next: Accounts &amp; Creative</span>
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Accounts & Creative Readiness (Questions 9–12 with Visual Option Cards) -->
+            <div id="wizardStep3" class="hidden space-y-6">
+              <div class="border-b border-slate-800 pb-3 flex items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-display font-bold text-xl text-white">Step 3: Accounts &amp; Creative Readiness</h3>
+                  <p class="text-xs text-slate-400 mt-1">Final check so we know what assets are ready to deploy.</p>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-obsidian-950 border border-slate-800 text-[11px] font-bold text-brand-coral">Step 3 of 3</span>
+              </div>
+
+              <!-- Question 9: Meta Business Manager & Pixel (Visual Cards) -->
+              <div>
+                <label class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2.5">
+                  <i class="bi bi-meta text-brand-blue"></i>
+                  <span>9. Meta Business Manager &amp; Pixel Status?</span>
+                </label>
+                <input type="hidden" id="f_meta_status" value="Not sure" />
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-choice-group="meta">
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('meta', 'f_meta_status', 'Yes', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Yes, both active</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Ready for Partner Access</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('meta', 'f_meta_status', 'No', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">No, need setup</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">We'll configure from scratch</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('meta', 'f_meta_status', 'Not sure', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-900 border border-brand-blue text-left transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Not sure</span>
+                      <i class="bi bi-check-circle-fill text-brand-blue"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">We'll verify on our call</p>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Question 10: Run TikTok Ads as well? (Visual Cards) -->
+              <div>
+                <label class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2.5">
+                  <i class="bi bi-tiktok text-brand-coral"></i>
+                  <span>10. Run TikTok Ads as well?</span>
+                </label>
+                <input type="hidden" id="f_tiktok_status" value="Yes, I have an account" />
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-choice-group="tiktok">
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('tiktok', 'f_tiktok_status', 'Yes, I have an account', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-900 border border-brand-blue text-left transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Yes, have account</span>
+                      <i class="bi bi-check-circle-fill text-brand-blue"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Multi-channel scaling</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('tiktok', 'f_tiktok_status', 'Yes, but I need an account', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Yes, need account</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Help set up Business Center</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('tiktok', 'f_tiktok_status', 'No, Meta only', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">No, Meta only</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Instagram &amp; Facebook focus</p>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Question 11: Ready-to-use Video/Photo Content? (Visual Cards) -->
+              <div>
+                <label class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2.5">
+                  <i class="bi bi-camera-video-fill text-brand-violet"></i>
+                  <span>11. Ready-to-use Video/Photo Content?</span>
+                </label>
+                <input type="hidden" id="f_creative_status" value="I have a few" />
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-choice-group="creative">
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('creative', 'f_creative_status', 'Yes, plenty', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Yes, plenty ready</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Ready for hook testing</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('creative', 'f_creative_status', 'I have a few', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-900 border border-brand-blue text-left transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">I have a few</span>
+                      <i class="bi bi-check-circle-fill text-brand-blue"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">1–3 videos or product photos</p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="selectChoiceCard('creative', 'f_creative_status', 'No, I need help with creative', this)"
+                    class="choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-bold text-white">Need creative help</span>
+                      <i class="bi bi-check-circle text-slate-600"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1">Scripts, UGC &amp; editing</p>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label for="f_past_results" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 mb-2">
+                  <i class="bi bi-journal-text text-brand-blue"></i>
+                  <span>12. Past Ad Results (ROAS, Cost per Lead) or Additional Notes</span>
+                </label>
+                <textarea
+                  id="f_past_results"
+                  rows="3"
+                  placeholder="e.g., First time running ads, or previously spent ₦100k with low conversions..."
+                  class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue transition-colors"
+                ></textarea>
+              </div>
+
+              <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onclick="goToStep(2)"
+                  class="px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-obsidian-950 hover:bg-obsidian-800 border border-slate-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <i class="bi bi-arrow-left"></i>
+                  <span>Back</span>
+                </button>
+
+                <button
+                  type="submit"
+                  class="px-8 py-4 rounded-xl font-bold text-sm text-white bg-brand-gradient bg-brand-gradient-hover shadow-glow-brand transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <i class="bi bi-check2-circle text-lg"></i>
+                  <span>Generate WhatsApp Onboarding Brief</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- GENERATED SUMMARY OUTPUT STATE (Shown after Step 3 Submit) -->
+          <div id="onboardingResultPanel" class="hidden space-y-6">
+            <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <i class="bi bi-patch-check-fill text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-white">Discovery Brief Ready!</h3>
+                <p class="text-xs sm:text-sm text-slate-300 mt-0.5">
+                  Send this formatted brief directly to FelixityNexus on WhatsApp so we can review your setup and share our 5-minute Partner Access steps.
+                </p>
+              </div>
+            </div>
+
+            <!-- Formatted Summary Preview Box -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Formatted WhatsApp Onboarding Summary</span>
+                <button
+                  type="button"
+                  onclick="resetOnboardingWizard()"
+                  class="text-xs font-semibold text-brand-blue hover:underline cursor-pointer"
+                >
+                  Edit Answers
+                </button>
+              </div>
+              <pre id="generatedBriefText" class="w-full p-4 sm:p-5 rounded-2xl bg-obsidian-950 border border-slate-800 text-xs sm:text-sm text-slate-200 font-sans whitespace-pre-wrap leading-relaxed max-h-72 overflow-y-auto"></pre>
+            </div>
+
+            <!-- Action Buttons: Open WhatsApp + Copy to Clipboard -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a
+                id="whatsappSendLink"
+                href="https://wa.me/2348035066050?text="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-4 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg transition-all flex items-center justify-center gap-2.5"
+              >
+                <i class="bi bi-whatsapp text-lg"></i>
+                <span>Send Summary via WhatsApp</span>
+              </a>
+
+              <button
+                type="button"
+                onclick="copyGeneratedBrief()"
+                class="py-4 px-6 rounded-xl font-bold text-sm text-white bg-obsidian-800 hover:bg-slate-700 border border-slate-700 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              >
+                <i class="bi bi-clipboard-check text-lg text-brand-blue"></i>
+                <span>Copy Summary to Clipboard</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary External Google Form Link -->
+          <div class="mt-8 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+            <span>Prefer submitting via Google Forms instead?</span>
+            <a
+              href="https://forms.gle/jQxhqwxStAyPQTaR8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 font-bold text-brand-blue hover:text-white transition-colors"
+            >
+              <span>Open Official Google Onboarding Form</span>
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       7. PROFESSIONAL FOOTER
+  ====================================================================== -->
+  <footer class="border-t border-slate-800/90 bg-obsidian-950 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-4">
+          <a href="#" class="inline-flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-obsidian-900 border border-slate-800 flex items-center justify-center">
+              <i class="bi bi-graph-up-arrow text-brand-gradient text-xl"></i>
+            </div>
+            <div>
+              <div class="font-display font-bold text-xl tracking-tight leading-none">
+                <span class="text-white">Felixity</span><span class="text-brand-gradient">Nexus</span>
+              </div>
+              <div class="text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1">
+                Digital Ads &amp; Performance Marketing
+              </div>
+            </div>
+          </a>
+
+          <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+            Turning ad spend into predictable, profitable revenue through data-driven Meta (Instagram &amp; Facebook) and TikTok media buying, server-side tracking, and scroll-stopping creative.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Navigation</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#services" class="hover:text-brand-blue transition-colors">Agency Services</a></li>
+            <li><a href="#calculator" class="hover:text-brand-blue transition-colors">Ad Budget Calculator</a></li>
+            <li><a href="#pricing" class="hover:text-brand-blue transition-colors">Pricing &amp; Packages</a></li>
+            <li><a href="#partner-access" class="hover:text-brand-blue transition-colors">Partner Access Guide</a></li>
+            <li><a href="#onboarding" class="hover:text-brand-blue transition-colors">Client Onboarding</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect With Us Column -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Connect With Us</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Ready to scale or have a quick question about Meta Business Manager, Pixel tracking, or monthly retainers? Reach out directly:
+          </p>
+          <div class="flex flex-col gap-3">
+            <a
+              href="https://wa.me/2348035066050?text=Hi%20FelixityNexus%2C%20I%27d%20like%20to%20discuss%20running%20Meta%2FTikTok%20ads%20for%20my%20business."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-bold text-white bg-emerald-600/90 hover:bg-emerald-500 transition-colors"
+            >
+              <i class="bi bi-whatsapp text-base"></i>
+              <span>Chat on WhatsApp &bull; +234 803 506 6050</span>
+            </a>
+            <a
+              href="mailto:felixitynexus.ads@gmail.com?subject=FelixityNexus%20Ad%20Campaign%20Inquiry"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-bold text-slate-200 bg-obsidian-900 hover:bg-obsidian-800 border border-slate-800 transition-colors"
+            >
+              <i class="bi bi-envelope-fill text-brand-blue"></i>
+              <span>felixitynexus.ads@gmail.com</span>
+            </a>
+          </div>
+
+          <!-- Social Channel Icon Row -->
+          <div class="flex items-center gap-2.5 pt-1">
+            <a
+              href="#onboarding"
+              aria-label="Instagram"
+              class="w-10 h-10 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-brand-coral/50 text-slate-300 hover:text-brand-coral flex items-center justify-center transition-colors"
+            >
+              <i class="bi bi-instagram text-base"></i>
+            </a>
+            <a
+              href="#onboarding"
+              aria-label="Facebook"
+              class="w-10 h-10 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-brand-blue/50 text-slate-300 hover:text-brand-blue flex items-center justify-center transition-colors"
+            >
+              <i class="bi bi-facebook text-base"></i>
+            </a>
+            <a
+              href="#onboarding"
+              aria-label="TikTok"
+              class="w-10 h-10 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-brand-violet/50 text-slate-300 hover:text-brand-violet flex items-center justify-center transition-colors"
+            >
+              <i class="bi bi-tiktok text-base"></i>
+            </a>
+            <a
+              href="https://wa.me/2348035066050?text=Hi%20FelixityNexus%2C%20I%27d%20like%20to%20discuss%20running%20Meta%2FTikTok%20ads%20for%20my%20business."
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              class="w-10 h-10 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-emerald-500/50 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-colors"
+            >
+              <i class="bi bi-whatsapp text-base"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright & ImpactDev Signature -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          &copy; <span id="currentYear"></span> FelixityNexus. All rights reserved.
+        </div>
+        <div class="text-slate-400 font-medium">
+          Crafted with precision &bull; Website by <span class="text-slate-200 font-semibold">~FelixityNexus~</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Non-Intrusive Toast Notification (Replaces any alert() usage) -->
+  <div
+    id="toastBanner"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 right-5 z-50 translate-y-24 opacity-0 pointer-events-none transition-all duration-300 max-w-sm"
+  >
+    <div class="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-obsidian-900 border border-brand-blue/50 shadow-glow-brand text-xs sm:text-sm font-semibold text-white">
+      <i id="toastIcon" class="bi bi-check-circle-fill text-brand-blue text-lg"></i>
+      <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       VANILLA JAVASCRIPT: INTERACTIVITY, CALCULATOR, WIZARD & CLIPBOARD
+  ====================================================================== -->
+  <script>
+    // Set current copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // -----------------------------------------------------------------------
+    // 1. TOAST NOTIFICATION HELPER (Zero alert() / confirm())
+    // -----------------------------------------------------------------------
+    let toastTimeout = null;
+    function showToast(message, isError = false) {
+      const banner = document.getElementById('toastBanner');
+      const msgEl = document.getElementById('toastMessage');
+      const iconEl = document.getElementById('toastIcon');
+
+      msgEl.textContent = message;
+      iconEl.className = isError
+        ? 'bi bi-exclamation-triangle-fill text-brand-coral text-lg'
+        : 'bi bi-check-circle-fill text-brand-blue text-lg';
+
+      banner.classList.remove('translate-y-24', 'opacity-0');
+      banner.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        banner.classList.remove('translate-y-0', 'opacity-100');
+        banner.classList.add('translate-y-24', 'opacity-0');
+      }, 3200);
+    }
+
+    // Reliable iframe-safe clipboard copy helper using document.execCommand('copy')
+    function copyTextSafely(text, label) {
+      try {
+        const tempTextarea = document.createElement('textarea');
+        tempTextarea.value = text;
+        tempTextarea.setAttribute('readonly', '');
+        tempTextarea.style.position = 'fixed';
+        tempTextarea.style.left = '-9999px';
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        tempTextarea.setSelectionRange(0, tempTextarea.value.length);
+        const successful = document.execCommand('copy');
+        document.body.removeChild(tempTextarea);
+
+        if (successful) {
+          showToast(`${label} copied to clipboard!`);
+        } else {
+          showToast(`Unable to auto-copy ${label}. Please select and copy manually.`, true);
+        }
+      } catch (err) {
+        showToast(`Please select and copy ${label} manually.`, true);
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 2. MOBILE MENU DRAWER
+    // -----------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+    const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenuDrawer.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenuDrawer.classList.remove('hidden');
+        mobileMenuIcon.className = 'bi bi-x-lg text-xl';
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenuDrawer.classList.add('hidden');
+        mobileMenuIcon.className = 'bi bi-list text-xl';
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuDrawer.classList.add('hidden');
+        mobileMenuIcon.className = 'bi bi-list text-xl';
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // -----------------------------------------------------------------------
+    // 3. HERO CAMPAIGN ARCHITECTURE PREVIEW TOGGLE (Meta vs TikTok)
+    // -----------------------------------------------------------------------
+    const architectureData = {
+      meta: {
+        statusText: 'Primary Conversion Objective: Sales & High-Velocity Lead Capture',
+        tagBadge: 'Placements: IG Reels • Feed • Stories',
+        stages: [
+          {
+            step: '01',
+            title: 'Hook Testing Matrix',
+            badge: 'Creative Layer',
+            badgeColor: 'text-brand-coral bg-brand-coral/10 border-brand-coral/30',
+            icon: 'bi-play-btn-fill text-brand-coral',
+            desc: '3-second visual pattern interrupts + UGC angle variations tested against scroll-stop & thumbstop rate.'
+          },
+          {
+            step: '02',
+            title: 'Pixel + CAPI Deduplication',
+            badge: 'Signal Layer',
+            badgeColor: 'text-brand-blue bg-brand-blue/10 border-brand-blue/30',
+            icon: 'bi-hdd-network-fill text-brand-blue',
+            desc: 'Browser Meta Pixel paired with server-side Conversions API (CAPI) so iOS/Android purchase events feed the algorithm cleanly.'
+          },
+          {
+            step: '03',
+            title: 'Advantage+ & Broad Scaling',
+            badge: 'Media Buying',
+            badgeColor: 'text-brand-violet bg-brand-violet/10 border-brand-violet/30',
+            icon: 'bi-graph-up-arrow text-brand-violet',
+            desc: 'Consolidating winning creatives into Advantage+ & broad ad sets to exit the learning phase faster and lower CPA.'
+          }
+        ]
+      },
+      tiktok: {
+        statusText: 'Primary Conversion Objective: Complete Payment & High-Velocity Lead Capture',
+        tagBadge: 'Placements: TikTok For You Feed • Spark Ads',
+        stages: [
+          {
+            step: '01',
+            title: 'Native UGC Hook Engineering',
+            badge: 'Creative Layer',
+            badgeColor: 'text-brand-coral bg-brand-coral/10 border-brand-coral/30',
+            icon: 'bi-camera-video-fill text-brand-coral',
+            desc: 'Fast-paced 9:16 vertical hooks, native captions, and authentic problem-solution demos built to blend into the FYP.'
+          },
+          {
+            step: '02',
+            title: 'TikTok Pixel + Events API',
+            badge: 'Signal Layer',
+            badgeColor: 'text-brand-blue bg-brand-blue/10 border-brand-blue/30',
+            icon: 'bi-diagram-3-fill text-brand-blue',
+            desc: 'Full-funnel ViewContent, AddToCart, and Purchase event attribution with Advanced Matching enabled.'
+          },
+          {
+            step: '03',
+            title: 'Smart+ & Spark Ad Scaling',
+            badge: 'Media Buying',
+            badgeColor: 'text-brand-violet bg-brand-violet/10 border-brand-violet/30',
+            icon: 'bi-lightning-charge-fill text-brand-violet',
+            desc: 'Amplifying top-performing organic posts via Spark Ads and scaling winning ad groups with disciplined daily budget rules.'
+          }
+        ]
+      }
+    };
+
+    function switchArchitecture(platform) {
+      const data = architectureData[platform];
+      const metaBtn = document.getElementById('archTabMeta');
+      const tiktokBtn = document.getElementById('archTabTiktok');
+      const bodyEl = document.getElementById('architectureBody');
+
+      if (platform === 'meta') {
+        metaBtn.className = 'px-3.5 py-2 rounded-lg text-xs font-bold transition-all bg-brand-gradient text-white shadow-sm cursor-pointer';
+        tiktokBtn.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+      } else {
+        tiktokBtn.className = 'px-3.5 py-2 rounded-lg text-xs font-bold transition-all bg-brand-gradient text-white shadow-sm cursor-pointer';
+        metaBtn.className = 'px-3.5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+      }
+
+      document.getElementById('archStatusText').textContent = data.statusText;
+      document.getElementById('archTagBadge').textContent = data.tagBadge;
+
+      bodyEl.innerHTML = data.stages.map((stage) => `
+        <div class="p-4 rounded-2xl bg-obsidian-950/90 border border-slate-800/90 hover:border-slate-700 transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <div class="flex items-center gap-2.5">
+              <span class="text-[11px] font-mono font-bold text-slate-500">${stage.step}</span>
+              <i class="bi ${stage.icon}"></i>
+              <h3 class="font-display font-bold text-sm text-white">${stage.title}</h3>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${stage.badgeColor}">
+              ${stage.badge}
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed pl-6">
+            ${stage.desc}
+          </p>
+        </div>
+      `).join('');
+    }
+
+    // Initialize default Meta preview
+    switchArchitecture('meta');
+
+    // -----------------------------------------------------------------------
+    // 4. INTERACTIVE NAIRA BUDGET CALCULATOR
+    // -----------------------------------------------------------------------
+    const budgetRange = document.getElementById('budgetRange');
+    let currentRecommendedOptionValue = 'Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)';
+
+    function formatNaira(amount) {
+      return '₦' + Math.round(amount).toLocaleString('en-NG');
+    }
+
+    function calculateBudgetBreakdown(totalBudget) {
+      let pkgName = '';
+      let pkgType = '';
+      let agencyFee = 0;
+      let optionValue = '';
+      let advice = '';
+
+      if (totalBudget < 90000) {
+        pkgName = 'The Power Hour (1-on-1 Live Setup)';
+        pkgType = '60-Min Consultation';
+        agencyFee = 20000;
+        optionValue = 'The Power Hour (₦20,000)';
+        advice = 'Smartest move for a ₦50k–₦80k budget: instead of paying a monthly retainer that eats your ad money, we set up your ad live via screen-share so the bulk stays on your card as pure ad fuel.';
+      } else if (totalBudget < 220000) {
+        pkgName = 'One-Time Campaign Setup & Handover';
+        pkgType = 'One-Time Build';
+        agencyFee = 45000;
+        optionValue = 'One-Time Campaign Setup & Handover (₦45,000)';
+        advice = 'We build your targeting, campaign structure, and ad copy professionally inside your account and hand over the controls—leaving plenty of fuel to run your ads.';
+      } else if (totalBudget < 450000) {
+        pkgName = 'Tier 1: Launch & Grow Retainer';
+        pkgType = 'Monthly Retainer';
+        agencyFee = 90000;
+        optionValue = 'Tier 1: Launch & Grow Retainer (₦90,000/mo)';
+        advice = 'Great entry point for ongoing management: covers 1–2 Meta (IG/FB) campaigns, Pixel verification, and bi-weekly optimization while keeping a healthy daily spend.';
+      } else if (totalBudget < 1250000) {
+        pkgName = 'Tier 2: Omni-Channel Scale Retainer';
+        pkgType = 'Most Popular Retainer';
+        agencyFee = 180000;
+        optionValue = 'Tier 2: Omni-Channel Scale Retainer (₦180,000/mo)';
+        advice = 'Our flagship growth engine: full Meta + TikTok campaign management, Conversions API (CAPI) tracking, creative testing briefs, and weekly optimization.';
+      } else {
+        pkgName = 'Tier 3: High-Volume Partner';
+        pkgType = 'Enterprise Retainer';
+        agencyFee = 300000;
+        optionValue = 'Tier 3: High-Volume Partner (₦300,000+/mo)';
+        advice = 'Built for multi-million Naira monthly spenders: full-funnel multi-channel media buying, aggressive scaling roadmaps, and priority creative direction.';
+      }
+
+      const pureAdSpend = Math.max(0, totalBudget - agencyFee);
+      const dailyAdSpend = pureAdSpend / 30;
+      const spendPct = Math.round((pureAdSpend / totalBudget) * 100);
+      const feePct = 100 - spendPct;
+
+      currentRecommendedOptionValue = optionValue;
+
+      // Update DOM elements
+      document.getElementById('totalBudgetDisplay').textContent = formatNaira(totalBudget);
+      document.getElementById('calcPackageName').textContent = pkgName;
+      document.getElementById('calcPackageType').textContent = pkgType;
+      document.getElementById('calcAgencyFee').textContent = formatNaira(agencyFee);
+      document.getElementById('calcAdSpend').textContent = formatNaira(pureAdSpend);
+      document.getElementById('calcDailyBudget').textContent = `≈ ${formatNaira(dailyAdSpend)} / day (over 30 days)`;
+      document.getElementById('calcSpendPctLabel').textContent = `Ad Spend Fuel: ${spendPct}%`;
+      document.getElementById('calcFeePctLabel').textContent = `Agency Fee: ${feePct}%`;
+      document.getElementById('calcSpendBar').style.width = `${spendPct}%`;
+      document.getElementById('calcFeeBar').style.width = `${feePct}%`;
+      document.getElementById('calcAdviceNote').textContent = advice;
+
+      // Highlight matching preset button if active
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        const presetVal = parseInt(btn.getAttribute('data-preset'), 10);
+        if (presetVal === totalBudget) {
+          btn.classList.remove('border-slate-800', 'text-slate-300');
+          btn.classList.add('border-brand-blue', 'text-white', 'bg-obsidian-900');
+        } else {
+          btn.classList.add('border-slate-800', 'text-slate-300');
+          btn.classList.remove('border-brand-blue', 'text-white', 'bg-obsidian-900');
+        }
+      });
+    }
+
+    budgetRange.addEventListener('input', (e) => {
+      calculateBudgetBreakdown(parseInt(e.target.value, 10));
+    });
+
+    function setBudgetPreset(amount) {
+      budgetRange.value = amount;
+      calculateBudgetBreakdown(amount);
+    }
+
+    function selectCalculatedPackage() {
+      selectServiceAndScroll(currentRecommendedOptionValue);
+    }
+
+    // Initialize calculator at ₦450,000 default
+    calculateBudgetBreakdown(450000);
+
+    // -----------------------------------------------------------------------
+    // 5. PRICING CATEGORY FILTER TABS
+    // -----------------------------------------------------------------------
+    function filterPricing(category) {
+      document.querySelectorAll('.pricing-tab').forEach(tab => {
+        if (tab.getAttribute('data-filter') === category) {
+          tab.className = 'pricing-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-gradient text-white transition-all cursor-pointer';
+        } else {
+          tab.className = 'pricing-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+        }
+      });
+
+      document.querySelectorAll('.pricing-card').forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // 6. ZERO-PASSWORD PARTNER ACCESS GUIDE + EDITABLE IDS
+    // -----------------------------------------------------------------------
+    const partnerStepsData = {
+      meta: [
+        'Open <strong>business.facebook.com/settings</strong> and log into your Meta Business Portfolio.',
+        'In the left sidebar under <strong>Users</strong>, click <strong>Partners</strong>, then click <strong>Add</strong> ("Partner to share assets with").',
+        'Paste the <strong>FelixityNexus 16-digit Meta Business ID</strong> (from the box on the left) and click <strong>Next</strong>.',
+        'Select your <strong>Facebook Page</strong>, <strong>Ad Account</strong>, <strong>Instagram Account</strong>, and <strong>Pixel/Dataset</strong>.',
+        'Toggle <strong>Manage campaigns</strong> permission on each asset and click <strong>Save Changes</strong>—done in under 5 minutes.'
+      ],
+      tiktok: [
+        'Log into your TikTok Business Center at <strong>business.tiktok.com</strong>.',
+        'On the left navigation menu under <strong>Users</strong>, click <strong>Partners</strong>.',
+        'Click the <strong>Add Partner</strong> button in the top right.',
+        'Enter the <strong>FelixityNexus TikTok Business Center ID</strong> (copied from the left) and click <strong>Next</strong>.',
+        'Select your <strong>Ad Account</strong> and <strong>TikTok Pixel</strong>, assign the <strong>Operator</strong> role, and click <strong>Confirm</strong>.'
+      ]
+    };
+
+    function switchPartnerGuide(platform) {
+      const metaTab = document.getElementById('partnerTabMeta');
+      const tiktokTab = document.getElementById('partnerTabTiktok');
+      const listEl = document.getElementById('partnerStepsList');
+
+      if (platform === 'meta') {
+        metaTab.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-gradient text-white transition-all cursor-pointer';
+        tiktokTab.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+      } else {
+        tiktokTab.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-gradient text-white transition-all cursor-pointer';
+        metaTab.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+      }
+
+      listEl.innerHTML = partnerStepsData[platform].map((stepHtml, i) => `
+        <li class="flex items-start gap-4 p-4 rounded-2xl bg-obsidian-950/90 border border-slate-800/90">
+          <span class="w-7 h-7 rounded-lg bg-brand-gradient text-white font-display font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+            ${i + 1}
+          </span>
+          <span class="text-xs sm:text-sm text-slate-200 leading-relaxed">${stepHtml}</span>
+        </li>
+      `).join('');
+    }
+
+    // Load saved Partner IDs from localStorage (ignoring old placeholder strings)
+    try {
+      const savedMetaId = localStorage.getItem('fnx_meta_partner_id');
+      const savedTiktokId = localStorage.getItem('fnx_tiktok_partner_id');
+      if (savedMetaId && savedMetaId !== 'FNX-META-PARTNER-ID') {
+        document.getElementById('metaPartnerIdInput').value = savedMetaId;
+      }
+      if (savedTiktokId && savedTiktokId !== 'FNX-TIKTOK-CENTER-ID') {
+        document.getElementById('tiktokPartnerIdInput').value = savedTiktokId;
+      }
+    } catch (e) {}
+
+    let isEditingPartnerIds = false;
+    function toggleEditPartnerIds() {
+      const metaInput = document.getElementById('metaPartnerIdInput');
+      const tiktokInput = document.getElementById('tiktokPartnerIdInput');
+      const btnText = document.getElementById('editIdsBtnText');
+      const helper = document.getElementById('editIdsHelper');
+
+      isEditingPartnerIds = !isEditingPartnerIds;
+
+      if (isEditingPartnerIds) {
+        metaInput.removeAttribute('readonly');
+        tiktokInput.removeAttribute('readonly');
+        metaInput.classList.add('border-brand-blue', 'bg-obsidian-950');
+        tiktokInput.classList.add('border-brand-coral', 'bg-obsidian-950');
+        metaInput.focus();
+        btnText.textContent = 'Save IDs';
+        helper.classList.remove('hidden');
+      } else {
+        metaInput.setAttribute('readonly', '');
+        tiktokInput.setAttribute('readonly', '');
+        metaInput.classList.remove('border-brand-blue', 'bg-obsidian-950');
+        tiktokInput.classList.remove('border-brand-coral', 'bg-obsidian-950');
+        btnText.textContent = 'Edit IDs';
+        helper.classList.add('hidden');
+        try {
+          localStorage.setItem('fnx_meta_partner_id', metaInput.value.trim());
+          localStorage.setItem('fnx_tiktok_partner_id', tiktokInput.value.trim());
+        } catch (e) {}
+        showToast('Agency Partner IDs saved!');
+      }
+    }
+
+    function copyPartnerId(inputId, label) {
+      const val = document.getElementById(inputId).value.trim();
+      copyTextSafely(val, label);
+    }
+
+    // Initialize default Meta Partner Access guide
+    switchPartnerGuide('meta');
+
+    // -----------------------------------------------------------------------
+    // 7. 3-STEP CLIENT ONBOARDING WIZARD & PRE-SELECTION
+    // -----------------------------------------------------------------------
+    let currentWizardStep = 1;
+
+    function selectChoiceCard(groupName, hiddenInputId, value, clickedBtn) {
+      document.getElementById(hiddenInputId).value = value;
+      const groupContainer = document.querySelector(`[data-choice-group="${groupName}"]`);
+      if (!groupContainer) return;
+
+      groupContainer.querySelectorAll('.choice-card').forEach(btn => {
+        const icon = btn.querySelector('i');
+        if (btn === clickedBtn) {
+          btn.className = 'choice-card p-3.5 rounded-xl bg-obsidian-900 border border-brand-blue text-left transition-all cursor-pointer';
+          if (icon) icon.className = 'bi bi-check-circle-fill text-brand-blue';
+        } else {
+          btn.className = 'choice-card p-3.5 rounded-xl bg-obsidian-950 border border-slate-800 text-left hover:border-brand-blue/60 transition-all cursor-pointer';
+          if (icon) icon.className = 'bi bi-check-circle text-slate-600';
+        }
+      });
+    }
+
+    function goToStep(stepNumber) {
+      // Basic validation before advancing
+      if (stepNumber > currentWizardStep) {
+        if (currentWizardStep === 1) {
+          const nameRole = document.getElementById('f_name_role').value.trim();
+          const contact = document.getElementById('f_contact').value.trim();
+          const bizUrl = document.getElementById('f_business_url').value.trim();
+          const aov = document.getElementById('f_aov').value.trim();
+
+          if (!nameRole || !contact || !bizUrl || !aov) {
+            showToast('Please fill in all 4 fields in Step 1 before continuing.', true);
+            return;
+          }
+        } else if (currentWizardStep === 2) {
+          const goalLoc = document.getElementById('f_goal_location').value.trim();
+          if (!goalLoc) {
+            showToast('Please enter your primary goal and target location.', true);
+            return;
+          }
+        }
+      }
+
+      currentWizardStep = stepNumber;
+
+      // Toggle step panels
+      [1, 2, 3].forEach(num => {
+        const panel = document.getElementById(`wizardStep${num}`);
+        const indicator = document.getElementById(`stepIndicator${num}`);
+        const badge = indicator.querySelector('span:first-child');
+        const alignClass = num === 1 ? 'justify-start text-left' : (num === 2 ? 'justify-center text-center' : 'justify-end text-right');
+
+        if (num === stepNumber) {
+          panel.classList.remove('hidden');
+          indicator.className = `text-brand-blue flex items-center ${alignClass} gap-2 font-bold cursor-pointer focus:outline-none`;
+          badge.className = 'w-7 h-7 rounded-xl bg-brand-gradient text-white inline-flex items-center justify-center text-xs flex-shrink-0';
+        } else if (num < stepNumber) {
+          panel.classList.add('hidden');
+          indicator.className = `text-emerald-400 flex items-center ${alignClass} gap-2 font-bold cursor-pointer focus:outline-none`;
+          badge.className = 'w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 inline-flex items-center justify-center text-xs flex-shrink-0';
+        } else {
+          panel.classList.add('hidden');
+          indicator.className = `text-slate-500 flex items-center ${alignClass} gap-2 font-bold cursor-pointer focus:outline-none`;
+          badge.className = 'w-7 h-7 rounded-xl bg-obsidian-800 text-slate-400 inline-flex items-center justify-center text-xs flex-shrink-0';
+        }
+      });
+
+      document.getElementById('wizardProgressBar').style.width = `${(stepNumber / 3) * 100}%`;
+    }
+
+    // Pre-select a service from any CTA button and scroll smoothly to #onboarding
+    function selectServiceAndScroll(serviceOptionValue) {
+      // Close mobile menu if open
+      mobileMenuDrawer.classList.add('hidden');
+      mobileMenuIcon.className = 'bi bi-list text-xl';
+
+      const serviceSelect = document.getElementById('f_service');
+      for (let i = 0; i < serviceSelect.options.length; i++) {
+        if (serviceSelect.options[i].value === serviceOptionValue) {
+          serviceSelect.selectedIndex = i;
+          break;
+        }
+      }
+
+      // Reset result panel if user previously submitted
+      document.getElementById('onboardingResultPanel').classList.add('hidden');
+      document.getElementById('onboardingForm').classList.remove('hidden');
+      goToStep(1);
+
+      const onboardingSection = document.getElementById('onboarding');
+      onboardingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast(`Selected: ${serviceOptionValue}`);
+    }
+
+    // Handle Final Submission -> Generate WhatsApp Brief
+    document.getElementById('onboardingForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const summary = [
+        `*FELIXITYNEXUS — CLIENT DISCOVERY BRIEF* 🚀`,
+        ``,
+        `*1. Name & Role:* ${document.getElementById('f_name_role').value.trim()}`,
+        `*2. Email & WhatsApp:* ${document.getElementById('f_contact').value.trim()}`,
+        `*3. Business & URL/Handle:* ${document.getElementById('f_business_url').value.trim()}`,
+        `*4. Average Order Value (AOV):* ${document.getElementById('f_aov').value.trim()}`,
+        ``,
+        `*5. Selected Service:* ${document.getElementById('f_service').value}`,
+        `*6. Primary Goal & Location:* ${document.getElementById('f_goal_location').value.trim()}`,
+        `*7. Ideal Customer & Offers:* ${document.getElementById('f_customer_offer').value.trim() || 'Not specified'}`,
+        `*8. Monthly Ad Spend Budget:* ${document.getElementById('f_budget').value}`,
+        ``,
+        `*9. Meta Business Manager & Pixel:* ${document.getElementById('f_meta_status').value}`,
+        `*10. TikTok Ads Interest:* ${document.getElementById('f_tiktok_status').value}`,
+        `*11. Ready-to-Use Content:* ${document.getElementById('f_creative_status').value}`,
+        `*12. Past Ad Results / Notes:* ${document.getElementById('f_past_results').value.trim() || 'None provided'}`
+      ].join('\n');
+
+      document.getElementById('generatedBriefText').textContent = summary;
+      document.getElementById('whatsappSendLink').href = `https://wa.me/2348035066050?text=${encodeURIComponent(summary)}`;
+
+      document.getElementById('onboardingForm').classList.add('hidden');
+      document.getElementById('onboardingResultPanel').classList.remove('hidden');
+      showToast('Onboarding summary generated!');
+    });
+
+    function copyGeneratedBrief() {
+      const text = document.getElementById('generatedBriefText').textContent;
+      copyTextSafely(text, 'Onboarding summary');
+    }
+
+    function resetOnboardingWizard() {
+      document.getElementById('onboardingResultPanel').classList.add('hidden');
+      document.getElementById('onboardingForm').classList.remove('hidden');
+      goToStep(3);
+    }
+  </script>
+</body>
+</html>
